@@ -16,7 +16,7 @@ class AlertView: AlertControllerView {
         didSet { self.textFieldsViewController?.visualStyle = self.visualStyle }
     }
 
-    private let scrollView = UIScrollView()
+    private let scrollView = TouchCancelingContentView()
 
     private var elements: [UIView] {
         let possibleElements: [UIView?] = [
@@ -48,6 +48,7 @@ class AlertView: AlertControllerView {
         super.prepareLayout()
 
         self.scrollView.translatesAutoresizingMaskIntoConstraints = false
+        self.scrollView.delaysContentTouches = false
         self.addSubview(self.scrollView)
 
         self.updateCollectionViewScrollDirection()
@@ -201,5 +202,11 @@ class AlertView: AlertControllerView {
             constant: -self.visualStyle.contentPadding.bottom)
         bottomAnchor.priority = priority
         self.addConstraint(bottomAnchor)
+    }
+}
+
+private final class TouchCancelingContentView: UIScrollView {
+    override func touchesShouldCancel(in view: UIView) -> Bool {
+        return true
     }
 }
