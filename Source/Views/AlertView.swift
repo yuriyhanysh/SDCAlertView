@@ -12,7 +12,16 @@ final class AlertView: UIView, AlertControllerViewRepresentable {
     }
 
     var visualStyle: AlertVisualStyle! {
-        didSet { self.textFieldsViewController?.visualStyle = self.visualStyle }
+        didSet {
+            self.textFieldsViewController?.visualStyle = self.visualStyle
+            
+            if let titleColor = visualStyle.titleTextColor {
+                titleLabel.textColor = titleColor
+            }
+            if let messageColor = visualStyle.messageTextColor {
+                messageLabel.textColor = messageColor
+            }
+        }
     }
 
     var actionTappedHandler: ((AlertAction) -> Void)? {

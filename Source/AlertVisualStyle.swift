@@ -88,7 +88,15 @@ open class AlertVisualStyle: NSObject {
     /// The font for an action sheet's other actions
     @objc
     public var actionSheetNormalFont = UIFont.systemFont(ofSize: 20)
-
+    
+    /// The color for an alert title text.
+    @objc
+    public var titleTextColor: UIColor?
+    
+    /// The color for an alert message text.
+    @objc
+    public var messageTextColor: UIColor?
+    
     /// The style of the alert.
     private let alertStyle: AlertControllerStyle
 

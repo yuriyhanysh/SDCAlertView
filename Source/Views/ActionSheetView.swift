@@ -22,6 +22,13 @@ final class ActionSheetView: UIView, AlertControllerViewRepresentable {
         didSet {
             let widthOffset = self.visualStyle.contentPadding.left + self.visualStyle.contentPadding.right
             self.titleWidthConstraint.constant -= widthOffset
+            
+            if let titleColor = visualStyle.titleTextColor {
+                titleLabel.textColor = titleColor
+            }
+            if let messageColor = visualStyle.messageTextColor {
+                messageLabel.textColor = messageColor
+            }
         }
     }
 
