@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 9.0
+This release brings Swift 4.2 compatibility.
+
+### 8.1.1
+**Bug Fixes:**
+- Fixes incorrect spacing when an action sheet doesn't have a label
+
 ## 8.1
 This release brings Swift 4.1 compatibility.
 
